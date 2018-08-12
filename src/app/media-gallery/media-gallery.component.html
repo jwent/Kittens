@@ -1,0 +1,10 @@
+<div class="gallery">
+  <ul>
+    <li elementDragDrop #id (mouseenter)="boxMouseEnter(i)"  (dragover)="allowDrop($event,id)" (mouseleave)="boxMouseLeave(i)" class="gallery-image-checkbox" *ngFor="let box of boxes; let i = index">
+      <img (drop)="drop($event)"  id={{i}} src="{{box.img}}" draggable="true" (dragstart)="drag($event)">
+        <input CheckboxControlValueAccessor [checked]="isChecked(box)" id="checkbox-{{i}}" type=checkbox>
+        <label [class.check-visible]="boxMouseVisible(i)" for="checkbox-{{i}}"></label>
+    </li>
+  </ul>
+</div>
+<!--/*[ngStyle]="allowDropStyle()"*/-->
